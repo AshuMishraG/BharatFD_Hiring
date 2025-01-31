@@ -1,28 +1,114 @@
-# Django FAQ API with Multilingual Support
+A simple Django REST framework (DRF) API for managing FAQs with multilingual support.
 
-    ## Project Description
+🚀 Features
 
-    This project implements a Django REST API for managing Frequently Asked Questions (FAQs) with multilingual support. It includes a WYSIWYG editor for rich text answers and caching for optimized performance.
+✅ CRUD operations for FAQs
+✅ Multilingual support for English (en), Hindi (hi), and Bengali (bn)
+✅ CKEditor for rich-text FAQ answers
+✅ Redis-based caching for performance optimization
 
-    ## Installation
+📦 Installation & Setup
 
-    1. Clone the repository.
-    2. Navigate to the project directory: `cd faq_project`
-    3. Install dependencies: `pip install -r requirements.txt`
-    4. Set up the database and run migrations: `python manage.py migrate`
-    5. Start the development server: `python manage.py runserver`
+1️⃣ Clone the Repository
 
-    ## API Usage
+git clone https://github.com/BharatFD/hiring.git
+cd hiring
 
-    - Fetch FAQs in English (default): `curl http://localhost:8000/api/faqs/`
-    - Fetch FAQs in Hindi: `curl http://localhost:8000/api/faqs/?lang=hi`
-    - Fetch FAQs in Bengali: `curl http://localhost:8000/api/faqs/?lang=bn`
+2️⃣ Create a Virtual Environment
 
-    ## Running Tests
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
 
-    Run tests with: `pytest`
+3️⃣ Install Dependencies
 
-    ## Contribution Guidelines
+pip install -r requirements.txt
 
-    - Following PEP8 standards.
-    - Written clear and concise commit messages.
+4️⃣ Apply Migrations
+
+python manage.py makemigrations
+python manage.py migrate
+
+5️⃣ Run Development Server
+
+python manage.py runserver
+
+API is now accessible at: http://127.0.0.1:8000/api/faqs/
+
+📡 API Endpoints
+
+1️⃣ Get All FAQs
+
+GET /api/faqs/
+
+Response:
+
+[
+    {
+        "id": 1,
+        "translated_question": "What is Django?",
+        "translated_answer": "A Python web framework."
+    }
+]
+
+2️⃣ Get FAQs in Hindi
+
+GET /api/faqs/?lang=hi
+
+3️⃣ Create a New FAQ
+
+POST /api/faqs/
+Content-Type: application/json
+{
+    "question": "What is Django?",
+    "answer": "A Python web framework.",
+    "question_hi": "Django क्या है?",
+    "answer_hi": "एक पायथन वेब फ्रेमवर्क।"
+}
+
+4️⃣ Update an FAQ
+
+PUT /api/faqs/1/
+Content-Type: application/json
+{
+    "question": "Updated Question?",
+    "answer": "Updated Answer."
+}
+
+5️⃣ Delete an FAQ
+
+DELETE /api/faqs/1/
+
+⚡ Deployment
+
+To deploy using Docker, create a Dockerfile:
+
+FROM python:3.9
+WORKDIR /app
+COPY . /app
+RUN pip install -r requirements.txt
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "faq_project.wsgi:application"]
+
+Then build & run:
+
+docker build -t faq_api .
+docker run -p 8000:8000 faq_api
+
+🛠 Troubleshooting
+
+Redis not running?
+Start Redis manually:
+
+brew services start redis
+
+Database issues?
+Try resetting migrations:
+
+rm -rf faq/migrations
+python manage.py makemigrations
+python manage.py migrate
+
+👨‍💻 Author
+
+👤 Aashutosh Mishra
+📧 aashutoshm77@gmail.com
