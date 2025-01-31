@@ -11,8 +11,7 @@ A simple Django REST framework (DRF) API for managing FAQs with multilingual sup
 
 1️⃣ Clone the Repository
 
-git clone https://github.com/BharatFD/hiring.git
-cd hiring
+git clone https://github.com/AshuMishraG/BharatFD_Hiring
 
 2️⃣ Create a Virtual Environment
 
