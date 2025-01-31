@@ -4,6 +4,19 @@ A simple Django REST framework (DRF) API for managing FAQs with multilingual sup
 
 ---
 
+## 📷 Screenshots
+
+1. **FAQ List View**  
+   ![http://127.0.0.1:8000/](./screenshot1.png)
+
+2. **Create FAQ Form**  
+   ![http://127.0.0.1:8000/api/faqs/?lang=hi](./screenshot2.png)
+
+3. **FAQ Detail View**  
+   ![http://127.0.0.1:8000/api/faqs/](./screenshot3.png)
+
+---
+
 ## 🚀 Features
 
 ✅ CRUD operations for FAQs  
