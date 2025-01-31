@@ -32,3 +32,10 @@ develop-eggs/
 *.pyo
 *.pyd
 *.db
+
+# environmental variables
+.env
+.venv
+
+# Migration DB
+migrations/
