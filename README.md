@@ -1,17 +1,24 @@
+# 📝 FAQ Management API (Django REST Framework)
+
 A simple Django REST framework (DRF) API for managing FAQs with multilingual support.
 
-🚀 Features
+---
 
-✅ CRUD operations for FAQs
-✅ Multilingual support for English (en), Hindi (hi), and Bengali (bn)
-✅ CKEditor for rich-text FAQ answers
-✅ Redis-based caching for performance optimization
+## 🚀 Features
 
-📦 Installation & Setup
+✅ CRUD operations for FAQs  
+✅ Multilingual support: **English (en), Hindi (hi), Bengali (bn)**  
+✅ CKEditor for rich-text FAQ answers  
+✅ Redis-based caching for performance optimization  
 
-1️⃣ Clone the Repository
+---
 
+## 📦 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```sh
 git clone https://github.com/AshuMishraG/BharatFD_Hiring
+cd BharatFD_Hiring
 
 2️⃣ Create a Virtual Environment
 
@@ -36,28 +43,17 @@ API is now accessible at: http://127.0.0.1:8000/api/faqs/
 
 📡 API Endpoints
 
-1️⃣ Get All FAQs
+➤ Get All FAQs
 
 GET /api/faqs/
 
-Response:
-
-[
-    {
-        "id": 1,
-        "translated_question": "What is Django?",
-        "translated_answer": "A Python web framework."
-    }
-]
-
-2️⃣ Get FAQs in Hindi
+➤ Get FAQs in Hindi
 
 GET /api/faqs/?lang=hi
 
-3️⃣ Create a New FAQ
+➤ Create a New FAQ
 
 POST /api/faqs/
-Content-Type: application/json
 {
     "question": "What is Django?",
     "answer": "A Python web framework.",
@@ -65,49 +61,35 @@ Content-Type: application/json
     "answer_hi": "एक पायथन वेब फ्रेमवर्क।"
 }
 
-4️⃣ Update an FAQ
+➤ Update an FAQ
 
 PUT /api/faqs/1/
-Content-Type: application/json
 {
     "question": "Updated Question?",
     "answer": "Updated Answer."
 }
 
-5️⃣ Delete an FAQ
+➤ Delete an FAQ
 
 DELETE /api/faqs/1/
 
 ⚡ Deployment
 
-To deploy using Docker, create a Dockerfile:
-
-FROM python:3.9
-WORKDIR /app
-COPY . /app
-RUN pip install -r requirements.txt
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "faq_project.wsgi:application"]
-
-Then build & run:
+For Docker Deployment:
 
 docker build -t faq_api .
 docker run -p 8000:8000 faq_api
 
 🛠 Troubleshooting
-
-Redis not running?
-Start Redis manually:
+	•	Redis not running? Start it with:
 
 brew services start redis
 
-Database issues?
-Try resetting migrations:
+	•	Database issues? Reset migrations:
 
 rm -rf faq/migrations
 python manage.py makemigrations
 python manage.py migrate
 
-👨‍💻 Author
-
-👤 Aashutosh Mishra
-📧 aashutoshm77@gmail.com
+👤 Author: Aashutosh Mishra
+📧 Email: aashutoshm77@gmail.com
