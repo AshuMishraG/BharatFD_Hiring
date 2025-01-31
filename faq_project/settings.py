@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key")
+SECRET_KEY = os.getenv("SECRET_KEY", "_mAbmOOWcPFHH-M3EfQOS5Gcy-X2Hw9M5RSa2aQlsS2FVStdb37fJ3l0md0xBc-Cx5o")
 
 DEBUG = True  # Change to False in production
 
@@ -33,14 +33,30 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'faq_project.urls'
 
+TEMPLATES = [
+  {
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [BASE_DIR / 'templates'],  # Add your templates directory here if you have one
+    'APP_DIRS': True,
+    'OPTIONS': {
+      'context_processors': [
+        'django.template.context_processors.debug',
+        'django.template.context_processors.request',
+        'django.contrib.auth.context_processors.auth',
+        'django.contrib.messages.context_processors.messages',
+      ],
+    },
+  },
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'faq_db',
-        'USER': 'faq_user',
-        'PASSWORD': 'securepassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'faq_db'),
+        'USER': os.getenv('DB_USER', 'faq_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'securepassword'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
