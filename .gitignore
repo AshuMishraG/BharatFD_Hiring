@@ -36,6 +36,3 @@ develop-eggs/
 # environmental variables
 .env
 .venv
-
-# Migration DB
-migrations/
