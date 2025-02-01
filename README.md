@@ -26,35 +26,24 @@ A simple Django REST framework (DRF) API for managing FAQs with multilingual sup
 
 ---
 
-## 📦 Installation & Setup
+## 📦 Installation Steps
 
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/AshuMishraG/BharatFD_Hiring
-cd BharatFD_Hiring
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AshuMishraG/BharatFD_Hiring
+   cd BharatFD_Hiring
+   ```
 
-2️⃣ Create a Virtual Environment
+2. Build and run the Docker containers:
+   ```bash
+   docker-compose up --build
+   ```
 
-python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate     # Windows
+3. Access the application at `http://localhost:8000`.
 
-3️⃣ Install Dependencies
+---
 
-pip install -r requirements.txt
-
-4️⃣ Apply Migrations
-
-python manage.py makemigrations
-python manage.py migrate
-
-5️⃣ Run Development Server
-
-python manage.py runserver
-
-API is now accessible at: http://127.0.0.1:8000/api/faqs/
-
-📡 API Endpoints
+## 📡 API Endpoints
 
 ➤ Get All FAQs
 
@@ -86,14 +75,45 @@ PUT /api/faqs/1/
 
 DELETE /api/faqs/1/
 
-⚡ Deployment
+---
+
+## API Usage Examples
+
+- Fetch FAQs in English (default):
+  ```bash
+  curl http://localhost:8000/api/faqs/
+  ```
+
+- Fetch FAQs in Hindi:
+  ```bash
+  curl http://localhost:8000/api/faqs/?lang=hi
+  ```
+
+- Fetch FAQs in Bengali:
+  ```bash
+  curl http://localhost:8000/api/faqs/?lang=bn
+  ```
+
+---
+
+## Contribution Guidelines
+
+- Fork the repository and create a new branch for your feature or bugfix.
+- Ensure code quality by running tests and linting.
+- Submit a pull request with a detailed description of your changes.
+
+---
+
+## ⚡ Deployment
 
 For Docker Deployment:
 
 docker build -t faq_api .
 docker run -p 8000:8000 faq_api
 
-🛠 Troubleshooting
+---
+
+## 🛠 Troubleshooting
 	•	Redis not running? Start it with:
 
 brew services start redis
@@ -104,5 +124,7 @@ rm -rf faq/migrations
 python manage.py makemigrations
 python manage.py migrate
 
-👤 Author: Aashutosh Mishra
-📧 Email: aashutoshm77@gmail.com
+---
+
+## 👤 Author: Aashutosh Mishra
+## 📧 Email: aashutoshm77@gmail.com
