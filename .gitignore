@@ -36,3 +36,5 @@ develop-eggs/
 # environmental variables
 .env
 .venv
+
+.DS_Store
